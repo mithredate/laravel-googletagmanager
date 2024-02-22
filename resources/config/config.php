@@ -6,7 +6,7 @@ return [
      * The Google Tag Manager id, should be a code that looks something like "gtm-xxxx".
      */
     'id' => env('GOOGLE_TAG_MANAGER_ID', ''),
-    
+
     /*
      * Enable or disable script rendering. Useful for local development.
      */
@@ -24,4 +24,10 @@ return [
      */
     'sessionKey' => env('GOOGLE_TAG_MANAGER_SESSION_KEY', '_googleTagManager'),
 
+    /*
+     * Configures the Google Tag Manager script domain.
+     * Only used when the script is being served by a domain
+     * other than www.googletagmanager.com.
+     */
+    'domain' => env('GOOGLE_TAG_MANAGER_DOMAIN', 'www.googletagmanager.com'),
 ];
