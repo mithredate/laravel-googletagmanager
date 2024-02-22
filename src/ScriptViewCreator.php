@@ -26,6 +26,9 @@ class ScriptViewCreator
             ->with('id', $this->googleTagManager->id())
             ->with('domain', $this->googleTagManager->gtmScriptDomain())
             ->with('dataLayer', $this->googleTagManager->getDataLayer())
-            ->with('pushData', $this->googleTagManager->getPushData());
+            ->with('pushData', $this->googleTagManager->getPushData())
+            ->with('clearDataLayer', function () {
+                $this->googleTagManager->clear();
+            });
     }
 }

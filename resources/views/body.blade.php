@@ -5,6 +5,7 @@
  * @var string $domain
  * @var \Spatie\GoogleTagManager\DataLayer $dataLayer
  * @var iterable<\Spatie\GoogleTagManager\DataLayer> $pushData
+ * @var callable(): void $clearDataLayer
  */
 ?>
 @if($enabled)
@@ -16,6 +17,10 @@
             @foreach($pushData as $item)
             window.dataLayer.push({!! $item->toJson() !!});
             @endforeach
+
+            @php
+                $clearDataLayer();
+            @endphp
         }
         addEventListener("load", gtmPush);
     </script>
@@ -28,4 +33,3 @@
         ></iframe>
     </noscript>
 @endif
-
